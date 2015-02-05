@@ -1,5 +1,6 @@
 import csv
 import sys
+import matplotlib.pyplot as plt
 
 def readCSV(filename):
     '''Reads the CSV file `filename` and returns a list
@@ -14,3 +15,29 @@ def readCSV(filename):
 
 
 ### enter your code below
+
+def get_avg_latlng(lines):
+    print lines[0][128:130]
+    return None
+    lines= lines[1:]
+    for l in lines:
+        print l[128]
+
+def zip_code_barchart(lines):
+    print zip(range(0,131), lines[0])
+    zips = []
+    lines = lines[1:]
+    for l in lines:
+        print l[28]
+        zips.append(l[28])
+
+    
+    n,bins,patches = plt.hist(zips,50, histtype='bar')
+    plt.show()
+    
+
+
+
+lines = readCSV('permits.csv')
+#get_avg_latlng(lines)
+zip_code_barchart(lines)
